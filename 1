@@ -1,32 +1,54 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 #include <windows.h>
 #include <locale.h>
+#include <conio.h>
 
 int main (){
 	setlocale(LC_ALL, "Spanish");
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);	
-	printf ("		     \n        			  ");
+	printf ("		     \n        	  ");
 	
-	SetConsoleTextAttribute(hConsole, FOREGROUND_RED);
-	printf ( "Conversión de Celsius a Fahrenhiet y viceversa\n");
+	//SetConsoleTextAttribute(hConsole, FOREGROUND_RED);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),5);
+	printf ( "----Conversión de temperatura----\n");
 	printf("\n");
 	
 	float F1;
 	float F2;
 	float C1;
 	float C2;
+	int op;
 	
-	SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE);
+	//SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),11);
+	printf("1. F° a C°\n");
+	printf("2. C° a F°\n");
+	printf("\nElige la opción a realizar (1 o 2):");
+	scanf("%d",&op);
+	printf("\n\n");
+	
+	if (op!=1)
+	if (op!=2)
+	{
+	printf("Dígito inválido");
+	}
+
+	
+	if (op==1){
+	//SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 	printf("Digite los grados Fahrenheit:");
 	scanf("%f",&F1);
 	
 	C1=(F1-32)/1.8;
 	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
 	printf("Los grados Celsius son: %.2f\n",C1);
+}
 	
-	SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE);
+	if (op==2){
+	//SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
 	printf("\nDigite los grados Celsius:");
 	scanf("%f",&C2);
 	
@@ -35,6 +57,7 @@ int main (){
 	printf("Los grados Farenheit son: %.2f",F2);
 	
 	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+}
 	
 	getche (); //para la pausa
 	return 0;
